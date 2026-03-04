@@ -1,0 +1,26 @@
+.team-match-details-bg-container {
+  background-color: #a4261d;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  width: 100vw;
+}
+.team-banner {
+  height: 50vh;
+  width: 100%;
+  margin-top: 5px;
+}
+.match-card-container {
+  list-style-type: none;
+  margin-left: 0px;
+  padding-left: 0px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.team-matches-latest-matches-heading{
+  color: #ffffff;
+}
