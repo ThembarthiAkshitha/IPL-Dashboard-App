@@ -21,6 +21,17 @@
   justify-content: center;
   align-items: center;
 }
-.team-matches-latest-matches-heading{
+.team-matches-latest-matches-heading {
   color: #ffffff;
+}
+.back-btn {
+  border: 0px;
+  background-color: #0f172a;
+  color: #ffffff;
+  margin-top: 5px;
+  border-radius: 10px;
+  height: 30px;
+  width: 100px;
+  padding: 5px;
+  align-self: flex-end;
 }

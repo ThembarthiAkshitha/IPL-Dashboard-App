@@ -1,6 +1,7 @@
 import {Component} from 'react'
 import Loader from 'react-loader-spinner'
 import './index.css'
+import {Link} from 'react-router-dom'
 import LatestMatch from '../LatestMatch'
 import MatchCard from '../MatchCard'
 
@@ -9,9 +10,11 @@ class TeamMatches extends Component {
     dataList: {},
     isLoading: true,
   }
+
   componentDidMount() {
     this.getTeamMatchDetails()
   }
+
   getTeamMatchDetails = async () => {
     const {match} = this.props
     const {params} = match
@@ -32,28 +35,27 @@ class TeamMatches extends Component {
         firstInnings: data.latest_match_details.first_innings,
         secondInnings: data.latest_match_details.second_innings,
       },
-      recentMatches: data.recent_matches.map(each => {
-        return {
-          id: each.id,
-          competingTeamLogo: each.competing_team_logo,
-          competingTeam: each.competing_team,
-          result: each.result,
-          matchStatus: each.match_status,
-        }
-      }),
+      recentMatches: data.recent_matches.map(each => ({
+        id: each.id,
+        competingTeamLogo: each.competing_team_logo,
+        competingTeam: each.competing_team,
+        result: each.result,
+        matchStatus: each.match_status,
+      })),
     }
     this.setState({
       dataList: updatedData,
       isLoading: false,
     })
   }
+
   render() {
     const {dataList, isLoading} = this.state
     const {teamBannerUrl, latestMatchDetails, recentMatches} = dataList
     return (
       <>
         {isLoading ? (
-          <div testid="loader">
+          <div data-testid="loader">
             <Loader type="Oval" color="#ffffff" height={50} width={50} />
           </div>
         ) : (
@@ -72,6 +74,11 @@ class TeamMatches extends Component {
                 <MatchCard details={each} key={each.id} />
               ))}
             </ul>
+            <Link to="/">
+              <button className="back-btn" type="button">
+                Back
+              </button>
+            </Link>
           </div>
         )}
       </>

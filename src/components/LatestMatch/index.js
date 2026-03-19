@@ -7,14 +7,14 @@ const LatestMatch = props => {
     umpires,
     result,
     manOfTheMatch,
-    id,
+    // id,
     date,
     venue,
     competingTeam,
     competingTeamLogo,
     firstInnings,
     secondInnings,
-    matchStatus,
+    // matchStatus,
   } = details
   return (
     <div className="latest-match-container">
